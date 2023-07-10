@@ -1,0 +1,38 @@
+.detail {
+    height: max-content;
+}
+
+.back {
+    background: var(--element);
+    color: var(--text);
+}
+
+svg {
+    fill: var(--text);
+}
+
+.card-img{
+    width: min(50em, 100%);
+    height: auto;
+}
+
+.card-img img {
+    height: 100%;
+    object-fit: fill;
+}
+
+.custom-margin.col-sm-12 {
+    margin-bottom: 3em;
+}
+
+.info > .col-sm-12 {
+    margin-bottom: 1em;
+}
+
+@media (max-width: 991px) {
+    .country-info{
+        width: 70%;
+        display: block;
+        margin: 0 auto;
+    }
+}
