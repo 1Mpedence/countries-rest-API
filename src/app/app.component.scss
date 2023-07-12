@@ -38,6 +38,10 @@ mat-select ::ng-deep svg {
     border-radius: var(--bs-border-radius)!important;
 }
 
+.background-theme {
+  background: var(--text);
+}
+
 .text {
     color: var(--text);
 }
