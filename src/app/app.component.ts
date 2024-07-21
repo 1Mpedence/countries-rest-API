@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { fromEvent, Observable, throwError } from 'rxjs';
-import { catchError, map, debounceTime } from 'rxjs/operators';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { throwError } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -35,6 +35,8 @@ export class AppComponent implements OnInit {
   country: any;
 
   loader = false;
+  
+  searchDebouncer: any;
 
   constructor(
     private http: HttpClient
@@ -71,12 +73,16 @@ export class AppComponent implements OnInit {
     this.countriesCopy = this.countries2Show;
   }
 
+  onSearchWrapper(){
+    if(this.searchDebouncer)  clearTimeout(this.searchDebouncer);
+    this.searchDebouncer = setTimeout(() => this.onSearch(), 555);
+  }
+
   onSearch(): void{
     if(!this.searchKey || this.searchKey?.length === 0){
       this.onRegionChange();
       return;
     }
-    console.log(this.countriesCopy);
     this.countries2Show = this.countriesCopy.filter((country: { region: string; capital: string; name: { common: string; }; }) => {
       return (
         country?.region?.toLowerCase()?.includes(this.searchKey.toLowerCase()) ||
