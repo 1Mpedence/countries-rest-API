@@ -1,34 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap" rel="stylesheet">
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-  <title>{{ title }}</title>
-</head>
-<body class="{{ theme }}">
+<div class="body {{ theme }}">
   <nav class="navbar py-4 px-5">
     <div class="navbar-brand fw-bold ps-3 text" (click)="home()">Where in the World?</div>
     <button class="theme-btn fw-medium text pe-3 d-flex align-items-center gap-2" (click)="themeChange()">
       <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><path d="M223.5 32C100 32 0 132.3 0 256S100 480 223.5 480c60.6 0 115.5-24.2 155.8-63.4c5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6c-96.9 0-175.5-78.8-175.5-176c0-65.8 36-123.1 89.3-153.3c6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z"/></svg>
-      <span>{ theme | titlecase} Mode</span></button>
+      <span>{{ theme | titlecase }} Mode</span></button>
   </nav>
   <div class="container-fluid" *ngIf="!countrySelected">
     <div class="row gap-5 justify-content-between align-items-center my-5 px-5">
       <div class="col-lg-4 col-md-12">
-        <div class="input-group px-3 py-2 shadow rounded">
+        <div class="input-group px-4 py-2 shadow rounded">
           <div class="input-group-prepend">
             <span class="input-group-text h-100 border-0" id="basic-addon1">
               <svg class="theme-icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>
             </span>
           </div>
-          <input #search (keyup)="onSearch()" [(ngModel)]="searchKey" type="text" class="form-control text border-0" placeholder="Search for a Country..." aria-label="Country" aria-describedby="basic-addon1">
+          <input #search (keyup)="onSearchWrapper()" [(ngModel)]="searchKey" type="text" class="form-control px-3 py-1 text border-0" placeholder="Search for a Country..." aria-label="Country" aria-describedby="basic-addon1">
         </div>
       </div>
       <div class="col-lg-3 col-md-4">
@@ -57,7 +43,7 @@
             <div class="card-img rounded-top">
               <img class="card-img-top rounded-top" [src]="country?.flags?.svg" alt="Card image cap">
             </div>
-            <div class="card-body px-4">
+            <div class="card-body p-4">
               <h5 class="card-title fw-bold my-3"> {{ country?.name?.common }} </h5>
               <p class="card-text fw-medium"><strong>Population: </strong> {{ country?.population }} </p>
               <p class="card-text fw-medium"><strong>Region: </strong> {{ country?.region }} </p>
@@ -72,5 +58,4 @@
     [country]="country"
     (back)="back($event)"
   ></app-country-detail>
-</body>
-</html>
+</div>
