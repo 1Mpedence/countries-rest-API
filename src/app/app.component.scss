@@ -10,7 +10,9 @@
     --text: hsl(0, 0%, 100%);
 }
 
-*{
+*,
+*::before,
+*::after{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -18,7 +20,7 @@
     color: var(--text);
 }
 
-html,body {
+html, .body {
     background: var(--background);
     height: max-content;
     min-height: 100vh;
