@@ -91,7 +91,7 @@ input,
     transition: transform 250ms
     &:hover {
       box-shadow: var(--bs-shadow-lg) !important;
-      transform: translateY(-10px)
+      transform: translateY(-10px);
     }
 }
 
