@@ -88,6 +88,9 @@ input,
     width: 18em;
     background: var(--element);
     cursor: pointer;
+    &:hover {
+      box-shadow: var(--bs-shadow-lg) !important;
+    }
 }
 
 .card-img {
