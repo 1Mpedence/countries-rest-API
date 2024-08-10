@@ -88,8 +88,10 @@ input,
     width: 18em;
     background: var(--element);
     cursor: pointer;
+    transition: transform 250ms
     &:hover {
       box-shadow: var(--bs-shadow-lg) !important;
+      transform: translateY(-10px)
     }
 }
 
