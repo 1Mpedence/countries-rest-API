@@ -37,7 +37,7 @@ mat-select ::ng-deep svg {
 
 ::ng-deep .mdc-menu-surface  {
     margin-top: 0.5em !important;
-    border-radius: var(--bs-box-shadow-lg)!important;
+    border-radius: var(--bs-border-radius)!important;
 }
 
 .background-theme {
@@ -90,7 +90,7 @@ input,
     cursor: pointer;
     transition: transform 250ms;
     &:hover {
-      box-shadow: var(--bs-shadow-lg) !important;
+      box-shadow: var(--bs-box-shadow-lg) !important;
       transform: translateY(-10px) !important;
     }
 }
