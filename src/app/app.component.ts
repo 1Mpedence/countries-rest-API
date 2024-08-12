@@ -36,7 +36,7 @@ export class AppComponent implements OnInit {
 
   loader = false;
   
-  searchDebouncer: any;
+  searchDebouncer: number;
 
   constructor(
     private http: HttpClient
