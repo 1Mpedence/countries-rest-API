@@ -117,6 +117,17 @@ input,
     cursor: pointer;
 }
 
+.main-container-tost {
+    width: 100vw;
+    background: none;
+    padding: 0px !important;
+    box-shadow: none;
+    min-width: 100vw !important;
+    min-width: 100vw !important;
+    margin: 0 !important;
+    padding: 0px !important;
+}
+
 mat-progress-spinner {
     margin: 0 auto !important
 }
@@ -135,6 +146,14 @@ mat-progress-spinner {
 
 ::ng-deep .mat-mdc-form-field-subscript-wrapper {
     height: 0 !important;
+}
+
+::ng-deep mat-snack-bar-container *{
+    background-color: var(--bs-danger) !important;
+    padding-inline: 0 !important;
+    border-radius: 10px;
+    text-align: center;
+    width: 100%;
 }
 
 @media (max-width: 500px) {
